@@ -1,11 +1,31 @@
+
 {% extends "base.html" %}
 
+{% block title %}CampusConnect - Login{% endblock %}
+
 {% block content %}
-  <h2>Log in</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Log in</button>
-  </form>
-  <p>No account? <a href="{% url 'signup' %}">Sign up</a></p>
+<div class="form-container">
+    <div class="card border-0 shadow-sm p-4">
+        <h2 class="fw-bold mb-3">Log In</h2>
+        <p class="text-muted">
+            Welcome back to CampusConnect!
+        </p>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit" class="btn btn-primary w-100">
+                Log In
+            </button>
+        </form>
+
+        <p class="text-center mt-3 mb-0">
+            No account?
+            <a href="{% url 'signup' %}" class="text-decoration-none">
+                Sign Up
+            </a>
+        </p>
+    </div>
+</div>
 {% endblock %}
